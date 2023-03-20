@@ -1,0 +1,23 @@
+// Call: UninstallAgent
+// Purpose: To trigger uninstall/prune agent.
+// Between: Console and management agent.
+// Service calls: NA. This is called using VCF.
+// Flow: console -> management agent
+
+syntax = "proto3";
+
+package agent.DTO;
+
+import "common.proto";
+
+message UninstallAgentRequestInfo {
+    common.UUID             uninstall_request_id      = 1;
+    common.UUID             agent_id                = 2;
+}
+
+message UninstallAgentRequestResult {
+    common.Status       status      = 1;
+    common.Error        error       = 2;
+}
+
+// Not on doc. Check if VBR has uninstall functionality.

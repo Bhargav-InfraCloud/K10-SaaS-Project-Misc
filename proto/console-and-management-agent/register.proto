@@ -1,0 +1,40 @@
+// Call: Register
+// Purpose: Agent calls Register to register itself to the Console.
+// Between: Console and management agent.
+// Service calls: NA. This is called using VCF.
+// Flow: management agent -> console
+
+syntax = "proto3";
+
+package agent.DTO;
+
+import "common.proto";
+
+enum AuthenticationType {
+    Unknown     = 0;
+    Certificate = 1;
+}
+
+message AuthenticationData {
+    AuthenticationType  auth_type   = 1;
+    common.UUID         tenant_id   = 2;
+}
+
+message SystemInformation {
+    string kubernetes_version = 1;
+}
+
+message RegisterInfo {
+    common.UUID         register_request_id = 1;
+    common.UUID         agent_id            = 2;
+    common.AgentVersion agent_version       = 3;
+    SystemInformation   system_info         = 4;
+    AuthenticationData  auth_data           = 5;
+}
+
+message RegisterResult {
+    common.Status       status      = 1;
+    common.Error        error       = 2;
+}
+
+

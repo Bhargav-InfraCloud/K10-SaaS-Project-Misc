@@ -1,0 +1,14 @@
+// Call: Health
+// Purpose: Agent to update the console about its health.
+// Between: Console and management agent.
+// Service calls: NA. This is called using VCF.
+// Flow: management agent -> console
+
+syntax = "proto3";
+
+package agent.DTO;
+
+// Periodic call with 1 min interval.
+// Agent ID is directly sent as argument to VCF call.
+// No proto in args or return type.
+// No return value for health check.

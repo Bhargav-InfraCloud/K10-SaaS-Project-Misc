@@ -1,0 +1,31 @@
+// Call: GetLicenseDetails
+// Purpose: To get the license details from server.
+// Between: Console and management agent.
+// Service calls: NA. This is called using VCF.
+// Flow: management agent -> console
+
+syntax = "proto3";
+
+package license;
+
+import "google/protobuf/timestamp.proto";
+
+enum Type {
+    Trail      = 0;
+    Full       = 1;
+}
+
+enum State {
+    Active = 0;
+    Expired = 1;
+}
+
+message LicenseDetails {
+    Type   type = 1;
+    State  state = 2;
+    google.protobuf.Timestamp last_updated = 3;
+    google.protobuf.Timestamp expiration_date = 4;
+    google.protobuf.Timestamp grace_period = 5;
+}
+
+// Check with Kasten.

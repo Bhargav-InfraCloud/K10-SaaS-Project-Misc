@@ -1,0 +1,32 @@
+// Call: InstallK10Service
+// Purpose: Console calls InstallService to the agent to make it install the K10 service.
+// Between: Console and management agent.
+// Service calls: NA. This is called using VCF.
+// Flow: console -> management agent
+
+syntax = "proto3";
+
+package agent.DTO;
+
+import "common.proto";
+
+message InstallServiceInfo {
+    common.UUID             install_service_request_id  = 1;
+    common.UUID             agent_id                    = 2;
+    common.ServiceVersion   service_version             = 3;
+}
+
+message InstallServiceResult {
+    common.Status   status  = 1;
+    common.Error    error   = 2;
+}
+
+
+// K8s distribution details aren't required here. 
+// The agent sends the K8s distribution details to console while registering.
+// And while forwarding this request over gRPC between agents, the agent has to add the distribution details.
+
+// Every distribution except for OnPremise will have a list of permissions, etc. as prerequisite.
+// Need to discuss if we start with this from start or work with on-premise first and extend later on.
+// https://docs.kasten.io/latest/install/install.html
+// Also, cloud providers like AWS has multiple types of installations and integrations.  

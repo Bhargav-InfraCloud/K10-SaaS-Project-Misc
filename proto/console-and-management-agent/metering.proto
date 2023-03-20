@@ -1,0 +1,12 @@
+// Call: Meter
+// Purpose: To update the metering and costs to console.
+// Between: Console and management agent.
+// Service calls: NA. This is called using VCF.
+// Flow: console -> management agent
+
+syntax = "proto3";
+
+package agent.DTO;
+
+// TBD with Kasten team.
+// Skip for now.
