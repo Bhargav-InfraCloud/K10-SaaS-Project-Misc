@@ -10,18 +10,32 @@ package agent.DTO;
 
 import "common.proto";
 
+enum KubeDistribution {
+    dist_unknown = 0;
+    dist_aws = 1;
+    dist_azure = 2;
+    dist_open_shift = 3;
+    dist_google = 4;
+    dist_digital_ocean = 5;
+    dist_v_sphere = 6;
+    dist_suse_rancher = 7;
+    dist_on_premise = 8;
+}
+
 enum AuthenticationType {
-    Unknown     = 0;
-    Certificate = 1;
+    auth_type_unknown     = 0;
+    auth_type_certificate = 1;
 }
 
 message AuthenticationData {
-    AuthenticationType  auth_type   = 1;
-    common.UUID         tenant_id   = 2;
+    AuthenticationType      auth_type       = 1;
+    common.UUID             tenant_id       = 2;
+    common.AgentVersion     agent_version   = 3;
 }
 
 message SystemInformation {
     string kubernetes_version = 1;
+    KubeDistribution kubernetes_distribution = 2;
 }
 
 message RegisterInfo {

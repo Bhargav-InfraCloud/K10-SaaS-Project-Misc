@@ -20,7 +20,7 @@ message Error {
 }
 
 enum Status {
-    FAILED      = 0;
-    SUCCESS     = 1;
-    TIMEOUT     = 2;
+    status_failed      = 0;
+    status_success     = 1;
+    status_timeout     = 2;
 }
