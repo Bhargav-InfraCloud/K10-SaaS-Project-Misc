@@ -7,26 +7,26 @@
 
 syntax = "proto3";
 
-package agent.DTO;
+package registry.DTO;
 
 import "common.proto";
 
 message VersionMatrix {
-    common.AgentVersion             agent_version   = 1;
-    repeated common.ServiceVersion  service_version = 2;
+    common.DTO.AgentVersion             agent_version   = 1;
+    repeated common.DTO.ServiceVersion  service_version = 2;
 }
 
 message UpdateAvailableVersionsInfo {
-    common.UUID             update_available_versions_request_id    = 1;
-    common.UUID             agent_id                                = 2;
-    common.AgentVersion     current_agent_version                   = 3;
-    common.ServiceVersion   current_service_version                 = 4;
+    common.DTO.UUID             update_available_versions_request_id    = 1;
+    common.DTO.UUID             agent_id                                = 2;
+    common.DTO.AgentVersion     current_agent_version                   = 3;
+    common.DTO.ServiceVersion   current_service_version                 = 4;
     repeated VersionMatrix  upgradable_versions                     = 5;
 }
 
 message UpdateAvailableVersionsResult {
-    common.Status   status  = 1;
-    common.Error    error   = 2;
+    common.DTO.Status   status  = 1;
+    common.DTO.Error    error   = 2;
 }
 
 

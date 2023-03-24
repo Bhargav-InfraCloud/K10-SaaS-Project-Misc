@@ -6,7 +6,7 @@
 
 syntax = "proto3";
 
-package agent.DTO;
+package logs.DTO;
 
 // - Console calls StartLogsCollection to request logs archive from agent(s).
 // - 3 types of logs to request/fetch -

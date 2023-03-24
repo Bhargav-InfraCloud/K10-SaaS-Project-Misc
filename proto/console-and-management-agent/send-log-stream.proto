@@ -6,7 +6,7 @@
 
 syntax = "proto3";
 
-package agent.DTO;
+package logs.DTO;
 
 // - Agent calls SendLogStream in return of StartLogsCollection call from console to send log stream.
 // - No proto is required for this call. VCF method will take the following as argument -

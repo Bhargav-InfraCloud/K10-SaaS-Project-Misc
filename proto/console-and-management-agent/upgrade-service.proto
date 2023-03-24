@@ -1,4 +1,4 @@
-// Call: UpgradeK10Service
+// Call: UpgradeService
 // Purpose: To trigger the K10 service's upgrade.
 // Between: Console and management agent.
 // Service calls: NA. This is called using VCF.
@@ -7,18 +7,18 @@
 
 syntax = "proto3";
 
-package agent.DTO;
+package service.DTO;
 
 import "common.proto";
 
 message UpgradeServiceInfo {
-    common.UUID             upgrade_service_request_id  = 1;
-    common.UUID             agent_id                    = 2;
-    common.ServiceVersion   current_version             = 3;
-    common.ServiceVersion   to_version                  = 4;
+    common.DTO.UUID             upgrade_service_request_id  = 1;
+    common.DTO.UUID             agent_id                    = 2;
+    common.DTO.ServiceVersion   current_version             = 3;
+    common.DTO.ServiceVersion   to_version                  = 4;
 }
 
 message UpgradeServiceResult {
-    common.Status   status  = 1;
-    common.Error    error   = 2;
+    common.DTO.Status   status  = 1;
+    common.DTO.Error    error   = 2;
 }

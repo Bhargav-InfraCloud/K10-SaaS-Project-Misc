@@ -6,7 +6,7 @@
 
 syntax = "proto3";
 
-package agent.DTO;
+package usage.DTO;
 
 // TBD with Kasten team.
 // Skip for now.

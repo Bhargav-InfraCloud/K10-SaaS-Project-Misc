@@ -1,21 +1,21 @@
-// Call: UninstallAgent
-// Purpose: To trigger uninstall/prune agent.
+// Call: UninstallService
+// Purpose: To trigger uninstall/prune K10 service.
 // Between: Console and management agent.
 // Service calls: NA. This is called using VCF.
 // Flow: console -> management agent
 
 syntax = "proto3";
 
-package agent.DTO;
+package service.DTO;
 
 import "common.proto";
 
-message UninstallAgentRequestInfo {
+message UninstallServiceInfo {
     common.DTO.UUID             uninstall_request_id      = 1;
     common.DTO.UUID             agent_id                = 2;
 }
 
-message UninstallAgentRequestResult {
+message UninstallServiceResult {
     common.DTO.Status       status      = 1;
     common.DTO.Error        error       = 2;
 }

@@ -12,13 +12,13 @@ package agent.DTO;
 import "common.proto";
 
 message UpgradeAgentInfo {
-    common.UUID         upgrade_agent_request_id    = 1;
-    common.UUID         agent_id                    = 2;
-    common.AgentVersion current_version             = 3;
-    common.AgentVersion to_version                  = 4;
+    common.DTO.UUID         upgrade_agent_request_id    = 1;
+    common.DTO.UUID         agent_id                    = 2;
+    common.DTO.AgentVersion current_version             = 3;
+    common.DTO.AgentVersion to_version                  = 4;
 }
 
 message UpgradeAgentResult {
-    common.Status   status  = 1;
-    common.Error    error   = 2;
+    common.DTO.Status   status  = 1;
+    common.DTO.Error    error   = 2;
 }

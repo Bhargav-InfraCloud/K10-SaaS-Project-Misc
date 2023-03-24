@@ -1,4 +1,4 @@
-// Call: InstallK10Service
+// Call: InstallService
 // Purpose: Console calls InstallService to the agent to make it install the K10 service.
 // Between: Console and management agent.
 // Service calls: NA. This is called using VCF.
@@ -6,19 +6,19 @@
 
 syntax = "proto3";
 
-package agent.DTO;
+package service.DTO;
 
 import "common.proto";
 
 message InstallServiceInfo {
-    common.UUID             install_service_request_id  = 1;
-    common.UUID             agent_id                    = 2;
-    common.ServiceVersion   service_version             = 3;
+    common.DTO.UUID             install_service_request_id  = 1;
+    common.DTO.UUID             agent_id                    = 2;
+    common.DTO.ServiceVersion   service_version             = 3;
 }
 
 message InstallServiceResult {
-    common.Status   status  = 1;
-    common.Error    error   = 2;
+    common.DTO.Status   status  = 1;
+    common.DTO.Error    error   = 2;
 }
 
 
