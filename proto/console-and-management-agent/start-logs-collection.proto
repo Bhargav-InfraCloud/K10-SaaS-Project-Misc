@@ -1,0 +1,29 @@
+// Call: StartLogsCollection
+// Purpose: Console calls StartLogsCollection to request logs archive from agent(s).
+// Between: Console and management agent.
+// Service calls: NA. This is called using VCF.
+// Flow: console -> management agent
+
+syntax = "proto3";
+
+package agent.DTO;
+
+// - Console calls StartLogsCollection to request logs archive from agent(s).
+// - 3 types of logs to request/fetch -
+//      1. CPP agent logs
+//          - These may be saved in file(s) locally on the CPP agent container or in a PV to easily read and write.
+//      2. Go agent logs
+//          - Similar to CPP, these logs can be stored locally in file(s) on the Go agent container or in a PV.
+//          - If PV, it should be accessible by CPP agent’s container for sharing the logs.
+//          - If stored in a file, local to container, a gRPC call between agents is required.
+//          TODO: Select an approach
+//      3. K10 service logs
+//          - Archive from K10 service can be downloaded using API calls:
+//              $ curl http://127.0.0.1:8080/k10/dashboardbff-svc/v0/supportLogs/
+//              $ curl http://127.0.0.1:8080/k10/dashboardbff-svc/v0/supportLogs/<id-from-previous-call> --output k10logs.zip
+// - No proto is required for this call. VCF method will take the following as arguments -
+//      1. Start time
+//      2. End time
+//      3. Type of logs required (above discussed 3 types or their combination)
+// - The result will be another VCF call SendLogStream from agent to console.
+// - Return value is bool confirming whether SendLogStream was successful.

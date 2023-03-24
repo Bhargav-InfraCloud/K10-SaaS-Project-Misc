@@ -1,0 +1,17 @@
+// Call: SendLogStream
+// Purpose: Agent calls SendLogStream in return of StartLogsCollection call from console to send log stream.
+// Between: Console and management agent.
+// Service calls: NA. This is called using VCF.
+// Flow: management agent -> console
+
+syntax = "proto3";
+
+package agent.DTO;
+
+// - Agent calls SendLogStream in return of StartLogsCollection call from console to send log stream.
+// - No proto is required for this call. VCF method will take the following as argument -
+//      1. Agent ID
+//      2. Logs archive (.zip) filename
+//      3. Archive size
+//      4. VCF stream’s address
+// - No return value for this call.
