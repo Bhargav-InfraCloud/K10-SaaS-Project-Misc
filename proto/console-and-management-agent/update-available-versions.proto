@@ -21,13 +21,10 @@ message UpdateAvailableVersionsInfo {
     common.DTO.UUID             agent_id                                = 2;
     common.DTO.AgentVersion     current_agent_version                   = 3;
     common.DTO.ServiceVersion   current_service_version                 = 4;
-    repeated VersionMatrix  upgradable_versions                     = 5;
+    repeated VersionMatrix      upgradable_versions                     = 5;
 }
 
 message UpdateAvailableVersionsResult {
     common.DTO.Status   status  = 1;
     common.DTO.Error    error   = 2;
 }
-
-
-
